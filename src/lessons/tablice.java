@@ -48,7 +48,7 @@ public class tablice {
 //        for (int numbers : number) {
 //            System.out.println(numbers);
 //        }
-//    }
+    }
 
 
 }

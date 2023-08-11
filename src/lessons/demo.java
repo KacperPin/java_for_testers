@@ -1,5 +1,7 @@
 package lessons;
 
+import Zadania.Bug;
+
 public class demo {
     public static void main(String[] args) {
 
@@ -7,12 +9,19 @@ public class demo {
 //        kacper.greetings(kacper.firstName);
 //        kacper.getFullInfo();
 
-        Bug testBug = new Bug("Nie działa aplikacja", "kacper.pindelski@cloudimed.pl",5);
-        testBug.bugStatus = false;
+        Bug testBug = new Bug("Nie działa aplikacja", "kacper.pindelski@cloudimed.pl", 5);
+        System.out.println("-------------- Pierwsze wywołanie");
         testBug.bugAllInformation();
-        testBug.personReportBug();
-        testBug.getBugStatus();
-        int bugPriority = testBug.getBugPriority();
-        System.out.println("Priorytet błędu to: " + bugPriority);
+
+        System.out.println("-------------- Zmiana wartości");
+
+        testBug.setBugDescription("1234567890");
+        testBug.setEmailAdress("email@email.com");
+        testBug.setPriority(6);
+
+        System.out.println("-------------- Sprawdzenie czy dane zostały zmienione");
+
+        testBug.bugAllInformation();
+
     }
 }

@@ -1,12 +1,13 @@
 package computer;
 
-public class Computer {
+public abstract class Computer {
 
     protected String name;
     protected String type;
     protected int hdd;
     protected int ram;
     protected boolean state;
+    protected int volume;
 
 
     public Computer(String name, String type, int hdd, int ram) {
@@ -15,6 +16,7 @@ public class Computer {
         this.hdd = hdd;
         this.ram = ram;
         this.state = false;
+        volume  = 0;
     }
 
     public String getName() {
@@ -49,6 +51,14 @@ public class Computer {
         this.ram = ram;
     }
 
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
     public void switchOff(boolean state) {
         state = false;
     }
@@ -60,4 +70,7 @@ public class Computer {
     public boolean getState() {
         return state;
     }
+
+    public abstract int volumeUp(int volumeUp);
+    public abstract int volumeDown(int volumeDown);
 }

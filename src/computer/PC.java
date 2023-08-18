@@ -17,6 +17,7 @@ public class PC extends Computer {
         System.out.println(name);
     }
 
+    @Override
     public void switchOn() {
         System.out.println("Sprawdzam podłączenie zasilania...");
         if(powerSupplyActive == true) {
@@ -26,5 +27,27 @@ public class PC extends Computer {
             System.out.println("Podłącz komputer do zasilania w celu uruchomienia.");
         }
 
+    }
+
+//    @Override
+    public int volumeUp(int volumeUp) {
+        volume += volumeUp;
+        if (volume >= 100) {
+            volume = 100;
+            return volume;
+        } else {
+            return volume;
+        }
+    }
+
+//    @Override
+    public int volumeDown(int volumeDown) {
+        volume -= volumeDown;
+        if (volume <= 0) {
+            volume = 0;
+            return volume;
+        } else {
+            return volume;
+        }
     }
 }

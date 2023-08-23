@@ -1,32 +1,27 @@
 package Zadania;
 
-public class Bug {
+public class Bug implements ConsoleNotification {
 
     // Zadanie 2
 
     private String bugDescription;
-    private String emailAdress;
     private int priority;
     private boolean bugStatus;
+    private BugReporter reporterInfo;
 
     Bug() {
 
     }
 
-    public Bug(String bugDescription, String emailAdress, int priority) {
+    public Bug(String bugDescription, int priority, BugReporter reporterInfo) {
         this.bugDescription = bugDescription;
-        this.emailAdress = emailAdress;
         this.priority = priority;
+        this.reporterInfo = reporterInfo;
         this.bugStatus = false;
-
     }
 
     public String getBugDescription() {
         return bugDescription;
-    }
-
-    public String getEmailAdress() {
-        return emailAdress;
     }
 
     public int getPriority() {
@@ -47,14 +42,6 @@ public class Bug {
         }
     }
 
-    public void setEmailAdress(String emailAdress) {
-        if (emailAdress.contains("@")) {
-            this.emailAdress = emailAdress;
-        } else {
-            System.out.println("Adres email musi zawierać znak @ ");
-        }
-    }
-
     public void setPriority(int priority) {
         if (priority > 5 || priority < 1) {
             System.out.println("Priorytet musi być określony w zakresie od 1 do 5");
@@ -65,24 +52,29 @@ public class Bug {
 
     public void setBugStatus(boolean bugStatus) {
         this.bugStatus = bugStatus;
+        notifyStatusChange();
     }
 
-    public void bugAllInformation(){
-        System.out.println("Opis błędu: " + bugDescription + " Adres email: " + emailAdress + " Priorytet: " + priority + " Status błędu: " + bugStatus);
+    @Override
+    public void notifyStatusChange() {
+        System.out.println("Zmieniono status bugu na : " + bugStatus);
     }
-//    void personReportBug(){
-//        System.out.println("Email osoby zgłaszającej błąd to: " + emailAdress);
-//    }
-//    void getBugStatus(){
-//        if(bugStatus == false){
-//            System.out.println("Status błędu to: otwarty");
-//        }else{
-//            System.out.println("Status błędu to: zamknięty");
-//        }
-//    }
-//    int getBugPriority(){
-//        return priority;
-//    }
 
+    @Override
+    public String toString() {
+        return "Bug{" +
+                "bugDescription='" + bugDescription + '\'' +
+                ", priority=" + priority +
+                ", bugStatus=" + bugStatus +
+                ", reporterInfo=" + reporterInfo +
+                '}';
+    }
 
+    public BugReporter getReporterInfo() {
+        return reporterInfo;
+    }
+
+    public void setReporterInfo(BugReporter reporterInfo) {
+        this.reporterInfo = reporterInfo;
+    }
 }

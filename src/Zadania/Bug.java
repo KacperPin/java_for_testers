@@ -1,6 +1,10 @@
 package Zadania;
 
-public class Bug implements ConsoleNotification {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
+public class Bug implements ConsoleNotification, Comparable<Bug> {
 
     // Zadanie 2
 
@@ -76,5 +80,23 @@ public class Bug implements ConsoleNotification {
 
     public void setReporterInfo(BugReporter reporterInfo) {
         this.reporterInfo = reporterInfo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bug bug = (Bug) o;
+        return priority == bug.priority && bugStatus == bug.bugStatus && Objects.equals(bugDescription, bug.bugDescription) && Objects.equals(reporterInfo, bug.reporterInfo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bugDescription, priority, bugStatus, reporterInfo);
+    }
+
+    @Override
+    public int compareTo(@NotNull Bug bug) {
+        return this.getBugDescription().compareTo(bug.getBugDescription());
     }
 }

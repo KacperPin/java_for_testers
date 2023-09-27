@@ -112,6 +112,11 @@ public class Streamy {
         //ifPresent()
         //ifPresentOrElse()
 
+        //FunctionalInterface
+        //Predicate - pobiera jedną wartość i zwraca boolean
+        //Consumer - pobiera jedną wartość i nic nie zwraca
+        //Supplier - dostarcza wartość
+
 //        System.out.println(max.get()); // Niebezbieczne bo nie jest zabezpieczone przed null'ami np. kiedy lista jest pusta
 
 //        if(max.isPresent()){
@@ -120,19 +125,49 @@ public class Streamy {
 //            System.out.println("Nie znaleziono takiego elementu");
 //        }
 
-        Integer maxAge = users.stream()
-                .map(User::userAge)
-                .max(Integer::compareTo)
-                .orElse(-1);
+//        Integer maxAge = users.stream()
+//                .map(User::userAge)
+//                .max(Integer::compareTo)
+//                .orElse(-1);
+//
+//        System.out.println(maxAge);
+//
+//        String isUser = users.stream()
+//                .map(User::getFirstName)
+//                .filter(str -> str.equals("Kasia"))
+//                .findFirst()
+//                .orElse("Nie znaleziono takiego użytkownika");
+//
+//        System.out.println(isUser);
 
-        System.out.println(maxAge);
+//        Integer age = users.stream()
+//                .map(User::userAge)
+//                .max(Integer::compareTo)
+//                .orElse(-1);
+//
+//        System.out.println(age);
 
-        String isUser = users.stream()
-                .map(User::getFirstName)
-                .filter(str -> str.equals("Kasia"))
+        User bartek = users.stream()
+                .filter(user -> user.getFirstName().startsWith("B"))
                 .findFirst()
-                .orElse("Nie znaleziono takiego użytkownika");
+                .orElseGet(() -> new User("BartekGet","TestowyGet","b@test.com",10));
 
-        System.out.println(isUser);
+        System.out.println(bartek);
+
+//        users.stream()
+//                .filter(user -> user.getFirstName().startsWith("B"))
+//                .findFirst()
+//                .orElseThrow(() -> new IllegalStateException("Na liście nie ma usera, który zaczyna się na literę B"));
+
+//        users.stream()
+//                .filter(user -> user.getFirstName().startsWith("B"))
+//                .findFirst()
+//                .ifPresent(user -> System.out.println(user));
+
+//        users.stream()
+//                .filter(user -> user.getFirstName().startsWith("X"))
+//                .findFirst()
+//                .ifPresentOrElse(user -> System.out.println(user), () -> System.out.println("Nie ma takiego użytkownika"));
+
     }
 }

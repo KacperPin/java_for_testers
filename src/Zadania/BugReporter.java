@@ -10,7 +10,7 @@ public class BugReporter {
     protected String bugReporterLastName;
     protected String emailAdres;
 
-    BugReporter(String bugReporterName, String bugReporterLastName, String emailAdres) {
+    public BugReporter(String bugReporterName, String bugReporterLastName, String emailAdres) {
         this.bugReporterName = bugReporterName;
         this.bugReporterLastName = bugReporterLastName;
         this.emailAdres = emailAdres;

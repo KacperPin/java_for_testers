@@ -1,4 +1,5 @@
 package lessons;
+import exceptions.IncorrectEmailFormatException;
 
 public class User {
 
@@ -77,5 +78,11 @@ public class User {
                 '}';
     }
 
-
+    public void setEmail(String email) throws IncorrectEmailFormatException {
+        if(!email.contains("@")){
+            throw new IncorrectEmailFormatException("Adres email musi zawierać znak małpy!");
+        }else{
+            this.email = email;
+        }
+    }
 }

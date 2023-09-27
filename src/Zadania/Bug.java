@@ -13,7 +13,7 @@ public class Bug implements ConsoleNotification, Comparable<Bug> {
     private boolean bugStatus;
     private BugReporter reporterInfo;
 
-    Bug() {
+    public Bug(String opis, int priority, BugReporter reporterInfo, int i) {
 
     }
 

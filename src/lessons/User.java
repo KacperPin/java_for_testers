@@ -8,7 +8,7 @@ public class User {
     String email;
     int age;
     boolean isAdult;
-
+    String gender;
     User(){
 
     }
@@ -35,6 +35,22 @@ public class User {
         this.email = email;
         this.age = age;
         this.isAdult = isUserAdult();
+    }
+
+    public User(String firstName, String lastName, String email, int age, String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.age = age;
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     void getFullName(){
@@ -84,5 +100,9 @@ public class User {
         }else{
             this.email = email;
         }
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

@@ -1,8 +1,7 @@
 package Zadania;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
+import exceptions.IllegalBugPriorityException;
 
 public class Bug implements ConsoleNotification, Comparable<Bug> {
 
@@ -46,9 +45,10 @@ public class Bug implements ConsoleNotification, Comparable<Bug> {
         }
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(int priority) throws IllegalBugPriorityException{
         if (priority > 5 || priority < 1) {
-            System.out.println("Priorytet musi być określony w zakresie od 1 do 5");
+            throw new IllegalBugPriorityException("Priorytet musi być określony w zakresie od 1 do 5");
+            //System.out.println("Priorytet musi być określony w zakresie od 1 do 5");
         } else {
             this.priority = priority;
         }

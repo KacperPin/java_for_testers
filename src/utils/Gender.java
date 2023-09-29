@@ -1,6 +1,7 @@
 package utils;
 
 public enum Gender {
+
     FEMALE("KOBIETA"),
     MALE("MĘŻCZYZNA");
 

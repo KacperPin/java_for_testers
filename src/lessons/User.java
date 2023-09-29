@@ -1,5 +1,6 @@
 package lessons;
 import exceptions.IncorrectEmailFormatException;
+import utils.Gender;
 
 public class User {
 
@@ -8,8 +9,8 @@ public class User {
     String email;
     int age;
     boolean isAdult;
-    String gender;
-    User(){
+    private Gender gender;
+        User(){
 
     }
 
@@ -37,7 +38,7 @@ public class User {
         this.isAdult = isUserAdult();
     }
 
-    public User(String firstName, String lastName, String email, int age, String gender) {
+    public User(String firstName, String lastName, String email, int age, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -45,11 +46,11 @@ public class User {
         this.gender = gender;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
